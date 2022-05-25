@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.grid-container {
+  background-color: lightgray;
+  height: 100%;
+}
+
+.item {
+  display: flex !important;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+mat-card {
+  margin: 8px;
+  flex: 1;
+}
+::ng-deep .grid-item-resize-icon {
+  transform: translate(-10px, -10px);
+}
