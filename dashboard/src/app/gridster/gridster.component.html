@@ -1,0 +1,23 @@
+<gridster [options]="options">
+  <gridster-item [item]="item" *ngFor="let item of dashboard">
+    <div
+      (mousedown)="$event.stopPropagation()"
+      (touchstart)="$event.stopPropagation()"
+    >
+      Some content to click without dragging the widget
+    </div>
+    <div class="item-buttons">
+      <button md-icon-button md-raised-button class="drag-handler">
+        <p>open_with</p>
+      </button>
+      <button
+        md-icon-button
+        md-raised-button
+        class="remove-button"
+        mdTooltip="Remove"
+      >
+        <p>clear</p>
+      </button>
+    </div>
+  </gridster-item>
+</gridster>

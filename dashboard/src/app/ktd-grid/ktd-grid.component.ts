@@ -8,11 +8,11 @@ import {
 import { debounceTime, filter, fromEvent, merge, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-ktd-grid',
+  templateUrl: 'ktd-grid.component.html',
+  styleUrls: ['ktd-grid.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class KtdComponent implements OnInit, OnDestroy {
   @ViewChild(KtdGridComponent, { static: true }) grid:
     | KtdGridComponent
     | undefined;

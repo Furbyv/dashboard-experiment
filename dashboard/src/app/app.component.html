@@ -1,14 +1,1 @@
-<ktd-grid
-  class="grid-container"
-  [cols]="cols"
-  [layout]="layout"
-  (layoutUpdated)="onLayoutUpdated($event)"
->
-  <ktd-grid-item
-    class="item"
-    *ngFor="let item of layout; trackBy: trackById"
-    [id]="item.id"
-  >
-    <mat-card></mat-card>
-  </ktd-grid-item>
-</ktd-grid>
+<app-gridster></app-gridster>
