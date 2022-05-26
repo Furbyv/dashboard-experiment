@@ -9,9 +9,15 @@ import { MaterialModule } from './shared/material.module';
 import { GridsterGridComponent } from './gridster/gridster.component';
 import { GridsterModule } from 'angular-gridster2';
 import { KtdComponent } from './ktd-grid/ktd-grid.component';
+import { GridsterOptionsDirective } from './gridster/gridster-options/gridster-options.directive';
 
 @NgModule({
-  declarations: [AppComponent, GridsterGridComponent, KtdComponent],
+  declarations: [
+    AppComponent,
+    GridsterGridComponent,
+    KtdComponent,
+    GridsterOptionsDirective,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   DisplayGrid,
   GridsterConfig,
@@ -12,8 +12,8 @@ import {
   styleUrls: ['gridster.component.scss'],
 })
 export class GridsterGridComponent implements OnInit {
-  options: GridsterConfig = {};
-  dashboard: Array<GridsterItem> | undefined;
+  @Input() options: GridsterConfig;
+  @Input() dashboard: Array<GridsterItem> | null;
 
   static itemChange(item: GridsterItem, itemComponent: any) {
     console.info('itemChanged', item, itemComponent);
@@ -24,24 +24,6 @@ export class GridsterGridComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.options = {
-      gridType: GridType.Fit,
-      displayGrid: DisplayGrid.OnDragAndResize,
-      pushItems: true,
-      swap: false,
-      draggable: {
-        delayStart: 0,
-        enabled: true,
-        ignoreContentClass: 'gridster-item-content',
-        ignoreContent: false,
-        dragHandleClass: 'drag-handler',
-        dropOverItems: false,
-      },
-      resizable: {
-        enabled: true,
-      },
-    };
-
     this.dashboard = [
       { cols: 2, rows: 1, y: 0, x: 0 },
       { cols: 2, rows: 2, y: 0, x: 2 },
