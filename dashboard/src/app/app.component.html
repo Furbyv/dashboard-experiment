@@ -1,1 +1,13 @@
-<app-gridster default-options [editable]="true"></app-gridster>
+<div class="container">
+  <div class="action-bar">
+    <span></span>
+    <mat-slide-toggle class="slide-toggle" (toggleChange)="toggleEditMode()"
+      >Edit dashboard</mat-slide-toggle
+    >
+  </div>
+  <app-gridster
+    class="grid"
+    default-options
+    [editable]="editable"
+  ></app-gridster>
+</div>

@@ -1,15 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
 import {
-  DisplayGrid,
-  GridsterConfig,
-  GridsterItem,
-  GridType,
-} from 'angular-gridster2';
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { GridsterConfig, GridsterItem } from 'angular-gridster2';
 
 @Component({
   selector: 'app-gridster',
   templateUrl: 'gridster.component.html',
   styleUrls: ['gridster.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GridsterGridComponent implements OnInit {
   @Input() options: GridsterConfig;
