@@ -6,24 +6,27 @@
     *ngIf="dashboard$ | async as dashboard"
   >
     <gridster-item
-      [item]="item"
+      [item]="item.position"
       *ngFor="let item of dashboard$ | async; trackBy: trackBy"
+      (itemChange)="itemChange($event.item, $event.itemComponent)"
     >
       <div class="item-container">
-        <div class="item-content"></div>
-        <div class="item-action-bar" *ngIf="editable">
-          <span></span>
-          <button
-            mat-icon-button
-            color="accent"
-            aria-label="Delete selected card button"
-            (mousedown)="$event.stopPropagation()"
-            (touchstart)="$event.stopPropagation()"
-            (click)="removeItem(item, dashboard)"
-          >
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
+        <mat-card class="item-content">
+          <app-card-template class="item" [template]="item"></app-card-template>
+          <div class="item-action-bar" *ngIf="editable">
+            <span></span>
+            <button
+              mat-icon-button
+              color="accent"
+              aria-label="Delete selected card button"
+              (mousedown)="$event.stopPropagation()"
+              (touchstart)="$event.stopPropagation()"
+              (click)="removeItem(item, dashboard)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </mat-card>
       </div>
     </gridster-item>
   </gridster>

@@ -1,0 +1,15 @@
+<ng-container *ngIf="template.type === cardType.Narrative">
+  <div class="item-n">{{ template.type }}</div>
+</ng-container>
+<ng-container *ngIf="template.type === cardType.AreaChart">
+  <div class="item-a">{{ template.type }}</div>
+</ng-container>
+<ng-container *ngIf="template.type === cardType.BarChart">
+  <div class="item-b">{{ template.type }}</div>
+</ng-container>
+<ng-container *ngIf="template.type === cardType.LineChart">
+  <div class="item-l">{{ template.type }}</div>
+</ng-container>
+<ng-container *ngIf="template.type === cardType.PieChart">
+  <div class="item-p">{{ template.type }}</div>
+</ng-container>
