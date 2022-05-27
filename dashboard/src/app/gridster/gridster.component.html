@@ -1,8 +1,13 @@
 <div class="grid-container">
-  <gridster default-options [editable]="editable" class="grid">
+  <gridster
+    default-options
+    [editable]="editable"
+    class="grid"
+    *ngIf="dashboard$ | async as dashboard"
+  >
     <gridster-item
       [item]="item"
-      *ngFor="let item of dashboard; trackBy: trackBy"
+      *ngFor="let item of dashboard$ | async; trackBy: trackBy"
     >
       <div class="item-container">
         <div class="item-content"></div>
@@ -14,7 +19,7 @@
             aria-label="Delete selected card button"
             (mousedown)="$event.stopPropagation()"
             (touchstart)="$event.stopPropagation()"
-            (click)="removeItem(item)"
+            (click)="removeItem(item, dashboard)"
           >
             <mat-icon>delete</mat-icon>
           </button>
@@ -24,8 +29,9 @@
   </gridster>
 
   <app-grid-action-bar
+    *ngIf="dashboard$ | async as dashboard"
     class="action-bar"
-    (addItem)="addItem()"
+    (addItem)="addItem(dashboard)"
     (isEditable)="toggleEditMode($event)"
   ></app-grid-action-bar>
 </div>
