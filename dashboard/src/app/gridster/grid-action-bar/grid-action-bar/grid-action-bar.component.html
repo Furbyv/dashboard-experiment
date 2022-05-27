@@ -1,0 +1,13 @@
+<button
+  mat-raised-button
+  [disabled]="!editable"
+  class="add-button"
+  color="primary"
+  (click)="onAddItem()"
+>
+  Add card
+</button>
+<span></span>
+<mat-slide-toggle class="slide-toggle" (change)="onChangeEditMode($event)"
+  >Edit dashboard</mat-slide-toggle
+>

@@ -10,6 +10,7 @@ import { GridsterGridComponent } from './gridster/gridster.component';
 import { GridsterModule } from 'angular-gridster2';
 import { KtdComponent } from './ktd-grid/ktd-grid.component';
 import { GridsterOptionsDirective } from './gridster/gridster-options/gridster-options.directive';
+import { GridActionBarComponent } from './gridster/grid-action-bar/grid-action-bar/grid-action-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GridsterOptionsDirective } from './gridster/gridster-options/gridster-o
     GridsterGridComponent,
     KtdComponent,
     GridsterOptionsDirective,
+    GridActionBarComponent,
   ],
   imports: [
     BrowserModule,

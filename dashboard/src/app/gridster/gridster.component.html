@@ -8,19 +8,9 @@
     </gridster-item>
   </gridster>
 
-  <div class="action-bar">
-    <button
-      mat-raised-button
-      [disabled]="!editable"
-      class="add-button"
-      color="primary"
-      (click)="addItem()"
-    >
-      Add card
-    </button>
-    <span></span>
-    <mat-slide-toggle class="slide-toggle" (toggleChange)="toggleEditMode()"
-      >Edit dashboard</mat-slide-toggle
-    >
-  </div>
+  <app-grid-action-bar
+    class="action-bar"
+    (addItem)="addItem()"
+    (isEditable)="toggleEditMode($event)"
+  ></app-grid-action-bar>
 </div>

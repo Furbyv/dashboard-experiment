@@ -34,8 +34,8 @@ export class GridsterGridComponent implements OnInit {
     ];
   }
 
-  toggleEditMode() {
-    this.editable = !this.editable;
+  toggleEditMode(value: boolean) {
+    this.editable = value;
   }
 
   removeItem(item: GridsterItem) {
