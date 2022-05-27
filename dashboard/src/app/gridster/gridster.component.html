@@ -4,7 +4,22 @@
       [item]="item"
       *ngFor="let item of dashboard; trackBy: trackBy"
     >
-      <div class="content"></div>
+      <div class="item-container">
+        <div class="item-content"></div>
+        <div class="item-action-bar" *ngIf="editable">
+          <span></span>
+          <button
+            mat-icon-button
+            color="accent"
+            aria-label="Delete selected card button"
+            (mousedown)="$event.stopPropagation()"
+            (touchstart)="$event.stopPropagation()"
+            (click)="removeItem(item)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
     </gridster-item>
   </gridster>
 

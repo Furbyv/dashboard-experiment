@@ -1,17 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  EventEmitter,
   Input,
   OnInit,
-  Output,
 } from '@angular/core';
-import {
-  GridsterConfig,
-  GridsterItem,
-  GridsterItemComponentInterface,
-} from 'angular-gridster2';
-import { ReplaySubject, Subject } from 'rxjs';
+import { GridsterItem } from 'angular-gridster2';
 
 @Component({
   selector: 'app-gridster',
@@ -38,7 +31,9 @@ export class GridsterGridComponent implements OnInit {
     this.editable = value;
   }
 
-  removeItem(item: GridsterItem) {
+  removeItem(item: GridsterItem): void {
+    //$event.preventDefault();
+    //$event.stopPropagation();
     if (this.dashboard) {
       this.dashboard.splice(this.dashboard.indexOf(item), 1);
     }

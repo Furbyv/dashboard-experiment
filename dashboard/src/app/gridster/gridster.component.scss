@@ -5,10 +5,23 @@
   width: 100%;
 }
 
-.content {
-  display: block;
+.item-container {
+  display: flex;
+  flex-direction: column;
   height: 100%;
-  background-color: aqua;
+  background-color: lightblue;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-action-bar {
+  display: flex;
+}
+
+.item-action-bar > span {
+  flex: 1;
 }
 
 .grid {
