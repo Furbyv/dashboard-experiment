@@ -1,10 +1,17 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
   OnInit,
+  Output,
 } from '@angular/core';
-import { GridsterConfig, GridsterItem } from 'angular-gridster2';
+import {
+  GridsterConfig,
+  GridsterItem,
+  GridsterItemComponentInterface,
+} from 'angular-gridster2';
+import { ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-gridster',
@@ -13,28 +20,22 @@ import { GridsterConfig, GridsterItem } from 'angular-gridster2';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GridsterGridComponent implements OnInit {
-  @Input() options: GridsterConfig;
+  editable: boolean = false;
   @Input() dashboard: Array<GridsterItem> | null;
 
-  static itemChange(item: GridsterItem, itemComponent: any) {
-    console.info('itemChanged', item, itemComponent);
-  }
-
-  static itemResize(item: GridsterItem, itemComponent: any) {
-    console.info('itemResized', item, itemComponent);
+  trackBy(_: number, item: GridsterItem): number {
+    return item['id'];
   }
 
   ngOnInit() {
     this.dashboard = [
-      { cols: 2, rows: 1, y: 0, x: 0 },
-      { cols: 2, rows: 2, y: 0, x: 2 },
+      { id: 1, cols: 2, rows: 1, y: 0, x: 0 },
+      { id: 2, cols: 2, rows: 2, y: 0, x: 2 },
     ];
   }
 
-  changedOptions() {
-    if (this.options?.api?.optionsChanged) {
-      this.options.api.optionsChanged();
-    }
+  toggleEditMode() {
+    this.editable = !this.editable;
   }
 
   removeItem(item: GridsterItem) {
@@ -43,9 +44,9 @@ export class GridsterGridComponent implements OnInit {
     }
   }
 
-  addItem() {
+  addItem(): void {
     if (this.dashboard) {
-      this.dashboard.push({ x: 2, y: 2, cols: 3, rows: 3 });
+      this.dashboard.push({ x: 0, y: 0, cols: 1, rows: 1 });
     }
   }
 }

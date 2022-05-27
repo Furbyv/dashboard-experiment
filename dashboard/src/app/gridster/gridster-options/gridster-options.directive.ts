@@ -1,21 +1,27 @@
-import { Directive, Input, OnInit } from '@angular/core';
-import { DisplayGrid, GridType } from 'angular-gridster2';
-import { GridsterGridComponent } from '../gridster.component';
+import { Directive, Input } from '@angular/core';
+import {
+  DisplayGrid,
+  GridsterComponent,
+  GridsterConfig,
+  GridType,
+} from 'angular-gridster2';
 
 @Directive({
-  selector: 'app-gridster[default-options]',
+  selector: 'gridster[default-options]',
 })
 export class GridsterOptionsDirective {
   @Input() set editable(value: boolean | null) {
-    this.setGridsterOptions(value ?? false);
+    this.gridsterComponent.options = this.getGridsterOptions(value ?? false);
+    this.gridsterComponent.optionsChanged();
   }
 
-  constructor(private gridsterGridComponent: GridsterGridComponent) {}
+  constructor(private gridsterComponent: GridsterComponent) {}
 
-  setGridsterOptions(editable: boolean) {
-    this.gridsterGridComponent.options = {
+  getGridsterOptions(editable: boolean): GridsterConfig {
+    return {
       gridType: GridType.Fit,
       displayGrid: DisplayGrid.OnDragAndResize,
+      margin: 16,
       pushItems: true,
       swap: false,
       draggable: {

@@ -1,0 +1,34 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  display: block;
+  height: 100%;
+  background-color: aqua;
+}
+
+.grid {
+  flex: 1;
+}
+
+.action-bar {
+  display: flex;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.action-bar > span {
+  flex: 1;
+}
+
+.add-button {
+  margin: auto 0 auto 16px;
+}
+
+.slide-toggle {
+  margin: auto 16px auto 0;
+}

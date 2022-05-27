@@ -1,23 +1,26 @@
-<gridster [options]="options">
-  <gridster-item [item]="item" *ngFor="let item of dashboard">
-    <div
-      (mousedown)="$event.stopPropagation()"
-      (touchstart)="$event.stopPropagation()"
+<div class="grid-container">
+  <gridster default-options [editable]="editable" class="grid">
+    <gridster-item
+      [item]="item"
+      *ngFor="let item of dashboard; trackBy: trackBy"
     >
-      Some content to click without dragging the widget
-    </div>
-    <div class="item-buttons">
-      <button md-icon-button md-raised-button class="drag-handler">
-        <p>open_with</p>
-      </button>
-      <button
-        md-icon-button
-        md-raised-button
-        class="remove-button"
-        mdTooltip="Remove"
-      >
-        <p>clear</p>
-      </button>
-    </div>
-  </gridster-item>
-</gridster>
+      <div class="content"></div>
+    </gridster-item>
+  </gridster>
+
+  <div class="action-bar">
+    <button
+      mat-raised-button
+      [disabled]="!editable"
+      class="add-button"
+      color="primary"
+      (click)="addItem()"
+    >
+      Add card
+    </button>
+    <span></span>
+    <mat-slide-toggle class="slide-toggle" (toggleChange)="toggleEditMode()"
+      >Edit dashboard</mat-slide-toggle
+    >
+  </div>
+</div>
