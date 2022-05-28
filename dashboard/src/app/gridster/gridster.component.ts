@@ -3,11 +3,14 @@ import {
   ChangeDetectionStrategy,
   Component,
 } from '@angular/core';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import {
   GridsterItem,
   GridsterItemComponent,
   GridsterItemComponentInterface,
 } from 'angular-gridster2';
+import { take } from 'rxjs';
+import { CardTypeSelectionComponent } from './card-type-selection/card-type-selection.component';
 import {
   CardTemplate,
   CardType,
@@ -28,7 +31,10 @@ export class GridsterGridComponent implements AfterViewInit {
     return item['id'];
   }
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private _bottomSheet: MatBottomSheet
+  ) {}
 
   ngAfterViewInit(): void {
     window.dispatchEvent(new Event('resize'));
@@ -56,14 +62,23 @@ export class GridsterGridComponent implements AfterViewInit {
 
   addItem(dashboard: CardTemplate[]): void {
     const maxId = Math.max(...dashboard.map((d) => d.id));
-    const db = [
-      ...dashboard,
-      {
-        id: maxId + 1,
-        type: CardType.PieChart,
-        position: { id: maxId + 1, x: 0, y: 0, cols: 1, rows: 1 },
-      },
-    ];
-    this.dashboardService.setDashboard(db);
+    this._bottomSheet
+      .open(CardTypeSelectionComponent)
+      .afterDismissed()
+      .pipe(take(1))
+      .subscribe((val) => {
+        if (val) {
+          const type = val;
+          const db = [
+            ...dashboard,
+            {
+              id: maxId + 1,
+              type,
+              position: { id: maxId + 1, x: 0, y: 0, cols: 1, rows: 1 },
+            },
+          ];
+          this.dashboardService.setDashboard(db);
+        }
+      });
   }
 }

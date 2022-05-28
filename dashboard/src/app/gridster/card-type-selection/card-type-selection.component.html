@@ -1,0 +1,9 @@
+<mat-selection-list
+  #shoes
+  [multiple]="false"
+  (selectionChange)="onSelectionChange($event)"
+>
+  <mat-list-option *ngFor="let card of cardTypes" [value]="card.value">
+    {{ card.label }}
+  </mat-list-option>
+</mat-selection-list>

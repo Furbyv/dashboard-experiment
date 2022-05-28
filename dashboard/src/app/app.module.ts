@@ -12,6 +12,7 @@ import { GridsterOptionsDirective } from './gridster/gridster-options/gridster-o
 import { GridActionBarComponent } from './gridster/grid-action-bar/grid-action-bar.component';
 import { CardTemplateComponent } from './gridster/card-template/card-template.component';
 import { ChartsModule } from './shared/charts/charts.module';
+import { CardTypeSelectionComponent } from './gridster/card-type-selection/card-type-selection.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ChartsModule } from './shared/charts/charts.module';
     GridsterOptionsDirective,
     GridActionBarComponent,
     CardTemplateComponent,
+    CardTypeSelectionComponent,
   ],
   imports: [
     BrowserModule,
