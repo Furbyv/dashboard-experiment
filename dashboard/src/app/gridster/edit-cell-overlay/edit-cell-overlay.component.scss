@@ -1,0 +1,49 @@
+:host {
+  position: absolute;
+  height: calc(100% - 8px);
+  width: calc(100% - 8px);
+  z-index: 10;
+  border-radius: 4px;
+  right: 4px;
+  bottom: 8px;
+  top: 4px;
+}
+
+.overlay {
+  background-color: darkgrey;
+  height: 100%;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.circle {
+  cursor: move;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  z-index: 14;
+  background-color: darkgray;
+  opacity: 0.75;
+  border-radius: 50%;
+}
+
+.drag-btn {
+  cursor: move;
+  position: absolute;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.delete-btn {
+  position: absolute;
+  z-index: 15;
+  top: 16px;
+  right: 16px;
+  opacity: 1;
+}

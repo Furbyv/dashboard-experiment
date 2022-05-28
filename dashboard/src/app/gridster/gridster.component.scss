@@ -9,6 +9,10 @@ gridster-item {
   width: 100%;
 }
 
+::ng-deep .gridster-item-resizable-handler {
+  z-index: 20 !important;
+}
+
 .item-container {
   display: flex;
   flex-direction: column;

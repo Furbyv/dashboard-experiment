@@ -36,18 +36,22 @@ export class GridsterGridComponent implements AfterViewInit {
     private _bottomSheet: MatBottomSheet
   ) {}
 
-  ngAfterViewInit(): void {
-    window.dispatchEvent(new Event('resize'));
-  }
-
-  itemChange(item: GridsterItem, component: GridsterItemComponentInterface) {
-    window.dispatchEvent(new Event('resize'));
-  }
-
-  itemInit() {
+  private resizeEvent() {
     setTimeout(() => {
       window.dispatchEvent(new Event('resize'));
     }, 200);
+  }
+
+  ngAfterViewInit(): void {
+    this.resizeEvent();
+  }
+
+  itemChange(item: GridsterItem, component: GridsterItemComponentInterface) {
+    this.resizeEvent();
+  }
+
+  itemInit() {
+    this.resizeEvent();
   }
 
   toggleEditMode(value: boolean) {
@@ -58,6 +62,7 @@ export class GridsterGridComponent implements AfterViewInit {
     const db = [...dashboard];
     db.splice(db.indexOf(item), 1);
     this.dashboardService.setDashboard(db);
+    this.resizeEvent();
   }
 
   addItem(dashboard: CardTemplate[]): void {

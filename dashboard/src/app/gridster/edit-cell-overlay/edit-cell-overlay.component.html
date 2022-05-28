@@ -1,0 +1,19 @@
+<div
+  class="overlay"
+  (mousedown)="$event.stopPropagation()"
+  (touchstart)="$event.stopPropagation()"
+></div>
+<div class="circle" matRipple [matRippleCentered]="true"></div>
+<button class="drag-btn" mat-fab color="basic">
+  <mat-icon>drag_indicator</mat-icon>
+</button>
+<button
+  class="delete-btn"
+  mat-mini-fab
+  color="basic"
+  (mousedown)="$event.stopPropagation()"
+  (touchstart)="$event.stopPropagation()"
+  (click)="onDelete()"
+>
+  <mat-icon>delete</mat-icon>
+</button>

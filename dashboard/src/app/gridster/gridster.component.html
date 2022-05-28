@@ -12,6 +12,10 @@
       (itemInit)="itemInit()"
     >
       <div class="item-container">
+        <app-edit-cell-overlay
+          *ngIf="editable"
+          (delete)="removeItem(item, dashboard)"
+        ></app-edit-cell-overlay>
         <mat-card class="item-content">
           <app-card-template class="item" [template]="item"></app-card-template>
         </mat-card>

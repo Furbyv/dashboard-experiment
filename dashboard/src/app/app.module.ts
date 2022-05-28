@@ -13,6 +13,7 @@ import { GridActionBarComponent } from './gridster/grid-action-bar/grid-action-b
 import { CardTemplateComponent } from './gridster/card-template/card-template.component';
 import { ChartsModule } from './shared/charts/charts.module';
 import { CardTypeSelectionComponent } from './gridster/card-type-selection/card-type-selection.component';
+import { EditCellOverlayComponent } from './gridster/edit-cell-overlay/edit-cell-overlay.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CardTypeSelectionComponent } from './gridster/card-type-selection/card-
     GridsterOptionsDirective,
     GridActionBarComponent,
     CardTemplateComponent,
+    EditCellOverlayComponent,
     CardTypeSelectionComponent,
   ],
   imports: [
