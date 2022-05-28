@@ -2,7 +2,7 @@
   <div class="item-n">{{ template.type }}</div>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.AreaChart">
-  <div class="item-a">{{ template.type }}</div>
+  <app-area-chart></app-area-chart>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.BarChart">
   <div class="item-b">{{ template.type }}</div>

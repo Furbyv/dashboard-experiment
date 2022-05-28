@@ -17,8 +17,8 @@ export interface Dimensions {
 
 @Component({
   selector: 'app-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.scss'],
+  templateUrl: '../base-chart/base-chart.component.html',
+  styleUrls: ['../base-chart/base-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LineChartComponent implements OnInit {
