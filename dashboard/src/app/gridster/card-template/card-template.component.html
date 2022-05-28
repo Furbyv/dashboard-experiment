@@ -5,10 +5,10 @@
   <app-area-chart></app-area-chart>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.BarChart">
-  <div class="item-b">{{ template.type }}</div>
+  <app-bar-chart></app-bar-chart>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.LineChart">
-  <app-line-chart class="item-l"></app-line-chart>
+  <app-line-chart></app-line-chart>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.PieChart">
   <app-pie-chart></app-pie-chart>

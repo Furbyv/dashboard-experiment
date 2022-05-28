@@ -8,12 +8,23 @@ import highchartsMore from 'highcharts/highcharts-more';
 import variablePie from 'highcharts/modules/variable-pie';
 import * as Highcharts from 'highcharts';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 highchartsMore(Highcharts);
 variablePie(Highcharts);
 
 @NgModule({
-  declarations: [LineChartComponent, AreaChartComponent, PieChartComponent],
+  declarations: [
+    LineChartComponent,
+    AreaChartComponent,
+    PieChartComponent,
+    BarChartComponent,
+  ],
   imports: [CommonModule, ChartModule, FormsModule],
-  exports: [LineChartComponent, AreaChartComponent, PieChartComponent],
+  exports: [
+    LineChartComponent,
+    AreaChartComponent,
+    PieChartComponent,
+    BarChartComponent,
+  ],
 })
 export class ChartsModule {}
