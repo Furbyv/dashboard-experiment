@@ -11,6 +11,7 @@ import { KtdComponent } from './ktd-grid/ktd-grid.component';
 import { GridsterOptionsDirective } from './gridster/gridster-options/gridster-options.directive';
 import { GridActionBarComponent } from './gridster/grid-action-bar/grid-action-bar.component';
 import { CardTemplateComponent } from './gridster/card-template/card-template.component';
+import { ChartsModule } from './shared/charts/charts.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CardTemplateComponent } from './gridster/card-template/card-template.co
     BrowserAnimationsModule,
     MaterialModule,
     GridsterModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

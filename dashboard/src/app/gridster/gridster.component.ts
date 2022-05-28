@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+} from '@angular/core';
 import {
   GridsterItem,
   GridsterItemComponent,
@@ -16,7 +20,7 @@ import {
   styleUrls: ['gridster.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GridsterGridComponent {
+export class GridsterGridComponent implements AfterViewInit {
   editable: boolean = false;
   dashboard$ = this.dashboardService.dashboard$;
 
@@ -26,8 +30,18 @@ export class GridsterGridComponent {
 
   constructor(private dashboardService: DashboardService) {}
 
+  ngAfterViewInit(): void {
+    window.dispatchEvent(new Event('resize'));
+  }
+
   itemChange(item: GridsterItem, component: GridsterItemComponentInterface) {
-    console.log('change', item, component);
+    window.dispatchEvent(new Event('resize'));
+  }
+
+  itemInit() {
+    setTimeout(() => {
+      window.dispatchEvent(new Event('resize'));
+    }, 200);
   }
 
   toggleEditMode(value: boolean) {

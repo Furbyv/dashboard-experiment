@@ -1,20 +1,31 @@
-div {
+:host {
   display: block;
   height: 100%;
 }
 
+div {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
 .item-n {
   background-color: aqua;
+  flex: 1;
 }
 .item-a {
+  flex: 1;
   background-color: lightcoral;
 }
 .item-b {
+  flex: 1;
   background-color: lightgreen;
 }
 .item-l {
-  background-color: lightcyan;
+  flex: 1;
+  display: block;
 }
 .item-p {
+  flex: 1;
   background-color: lightseagreen;
 }

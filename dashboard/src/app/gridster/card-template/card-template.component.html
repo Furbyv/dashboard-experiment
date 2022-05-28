@@ -8,7 +8,7 @@
   <div class="item-b">{{ template.type }}</div>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.LineChart">
-  <div class="item-l">{{ template.type }}</div>
+  <app-line-chart class="item-l"></app-line-chart>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.PieChart">
   <div class="item-p">{{ template.type }}</div>

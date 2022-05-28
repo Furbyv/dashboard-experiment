@@ -16,13 +16,14 @@ gridster-item {
 }
 
 .item-content {
-  display: flex;
-  flex-direction: column;
   flex: 1;
+  max-height: calc(100% - 40px);
   margin: 4px;
 }
 
 .item {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 

@@ -23,7 +23,7 @@ export class DashboardService {
   >([
     {
       id: 1,
-      type: CardType.AreaChart,
+      type: CardType.LineChart,
       position: { id: 1, cols: 2, rows: 1, y: 0, x: 0 },
     },
     {
