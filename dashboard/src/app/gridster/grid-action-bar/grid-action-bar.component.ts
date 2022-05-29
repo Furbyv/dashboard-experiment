@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   OnInit,
   Output,
 } from '@angular/core';
@@ -14,12 +15,24 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GridActionBarComponent implements OnInit {
+  @Input() isModified: boolean | null = false;
   @Output() isEditable = new EventEmitter<boolean>();
   @Output() addItem = new EventEmitter<void>();
+  @Output() save = new EventEmitter<void>();
+  @Output() discard = new EventEmitter<void>();
   editable: boolean = false;
+
   constructor() {}
 
   ngOnInit() {}
+
+  isDisabled() {
+    if (!this.editable) {
+      return true;
+    } else {
+      return !this.isModified;
+    }
+  }
 
   onChangeEditMode(event: MatSlideToggleChange) {
     this.editable = event.checked;
@@ -28,5 +41,13 @@ export class GridActionBarComponent implements OnInit {
 
   onAddItem() {
     this.addItem.emit();
+  }
+
+  onSave() {
+    this.save.emit();
+  }
+
+  onDiscard() {
+    this.discard.emit();
   }
 }

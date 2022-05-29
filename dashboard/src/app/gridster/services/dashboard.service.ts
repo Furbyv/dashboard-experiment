@@ -1,6 +1,19 @@
 import { Injectable } from '@angular/core';
 import { GridsterItem } from 'angular-gridster2';
-import { BehaviorSubject, ReplaySubject, Subject } from 'rxjs';
+import {
+  filter,
+  map,
+  merge,
+  Observable,
+  of,
+  ReplaySubject,
+  shareReplay,
+  startWith,
+  Subject,
+  switchMap,
+  tap,
+  withLatestFrom,
+} from 'rxjs';
 
 export enum CardType {
   Narrative = 'Narrative',
@@ -16,27 +29,71 @@ export interface CardTemplate {
   position: GridsterItem;
 }
 
+const Key: string = 'exp-dashboard';
+
 @Injectable({ providedIn: 'root' })
 export class DashboardService {
-  private dashboard$$: Subject<CardTemplate[]> = new BehaviorSubject<
-    CardTemplate[]
-  >([
-    {
-      id: 1,
-      type: CardType.LineChart,
-      position: { id: 1, cols: 2, rows: 1, y: 0, x: 0 },
-    },
-    {
-      id: 2,
-      type: CardType.Narrative,
-      position: { id: 2, cols: 2, rows: 2, y: 0, x: 2 },
-    },
-  ]);
-  dashboard$ = this.dashboard$$.asObservable();
+  private editedDashboard$$: Subject<CardTemplate[] | null> = new ReplaySubject(
+    1
+  );
+  private refresh$$: Subject<boolean> = new ReplaySubject(1);
+  private save$$: Subject<void> = new ReplaySubject(1);
+
+  private save$ = this.save$$.pipe(
+    withLatestFrom(this.editedDashboard$$),
+    switchMap(([_, db]) =>
+      db ? this.saveDashBoardToLocalStorage(db) : of(null)
+    ),
+    map((_) => true),
+    startWith(true),
+    shareReplay({ bufferSize: 1, refCount: true })
+  );
+
+  private refresh$ = merge(this.save$, this.refresh$$).pipe(
+    tap((_) => this.editedDashboard$$.next(null))
+  );
+
+  private originalDashBoard$ = this.refresh$.pipe(
+    switchMap(() => this.getDashboardFromLocalStorage()),
+    shareReplay({ bufferSize: 1, refCount: true })
+  );
+
+  dashboard$ = merge(
+    this.editedDashboard$$.pipe(
+      filter((db) => !!db),
+      map((db) => db ?? [])
+    ),
+    this.originalDashBoard$
+  ).pipe(shareReplay({ bufferSize: 1, refCount: true }));
+
+  modified$ = this.editedDashboard$$.pipe(map((db) => !!db));
 
   constructor() {}
 
-  setDashboard(dashboard: CardTemplate[]): void {
-    this.dashboard$$.next(dashboard);
+  public setDashboard(dashboard: CardTemplate[]): void {
+    this.editedDashboard$$.next(dashboard);
+  }
+
+  public saveDashboard() {
+    this.save$$.next();
+  }
+
+  public discardChanges() {
+    this.refresh$$.next(true);
+  }
+
+  private getDashboardFromLocalStorage(): Observable<CardTemplate[]> {
+    const storedDb = localStorage.getItem(Key);
+    if (storedDb) {
+      return of(JSON.parse(storedDb));
+    } else {
+      return of([]);
+    }
+  }
+
+  private saveDashBoardToLocalStorage(
+    dashboard: CardTemplate[]
+  ): Observable<void> {
+    return of(localStorage.setItem(Key, JSON.stringify(dashboard)));
   }
 }

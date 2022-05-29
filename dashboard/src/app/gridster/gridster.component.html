@@ -1,14 +1,14 @@
 <div class="grid-container">
   <gridster
+    *ngIf="dashboard$ | async as dashboard"
     default-options
     [editable]="editable"
     class="grid"
-    *ngIf="dashboard$ | async as dashboard"
   >
     <gridster-item
+      *ngFor="let item of dashboard"
       [item]="item.position"
-      *ngFor="let item of dashboard$ | async; trackBy: trackBy"
-      (itemChange)="itemChange($event.item, $event.itemComponent)"
+      (itemChange)="itemChange($event.item, $event.itemComponent, dashboard)"
       (itemInit)="itemInit()"
     >
       <div class="item-container">
@@ -26,7 +26,10 @@
   <app-grid-action-bar
     *ngIf="dashboard$ | async as dashboard"
     class="action-bar"
+    [isModified]="isModified$ | async"
     (addItem)="addItem(dashboard)"
     (isEditable)="toggleEditMode($event)"
+    (save)="onSave()"
+    (discard)="onDiscard()"
   ></app-grid-action-bar>
 </div>

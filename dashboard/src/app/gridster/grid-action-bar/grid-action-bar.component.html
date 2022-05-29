@@ -8,6 +8,24 @@
   Add card
 </button>
 <span></span>
+<button
+  mat-raised-button
+  [disabled]="isDisabled()"
+  class="state-button"
+  color="accent"
+  (click)="onSave()"
+>
+  Save changes
+</button>
+<button
+  mat-raised-button
+  [disabled]="isDisabled()"
+  class="state-button"
+  color="warn"
+  (click)="onDiscard()"
+>
+  Discard changes
+</button>
 <mat-slide-toggle class="slide-toggle" (change)="onChangeEditMode($event)"
   >Edit dashboard</mat-slide-toggle
 >
