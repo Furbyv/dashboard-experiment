@@ -12,6 +12,8 @@ import { CardTemplateComponent } from './gridster/card-template/card-template.co
 import { ChartsModule } from './shared/charts/charts.module';
 import { CardTypeSelectionComponent } from './gridster/card-type-selection/card-type-selection.component';
 import { EditCellOverlayComponent } from './gridster/edit-cell-overlay/edit-cell-overlay.component';
+import { QuillModule } from 'ngx-quill';
+import { TextEditorModule } from './shared/text-editor/text.-editor.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { EditCellOverlayComponent } from './gridster/edit-cell-overlay/edit-cell
     MaterialModule,
     GridsterModule,
     ChartsModule,
+    TextEditorModule,
+    QuillModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

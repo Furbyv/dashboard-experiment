@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.edit-menu {
+  display: flex;
+}
+
+.edit-menu > span {
+  flex: 1;
+}
+
+.view .ql-editor {
+  height: calc(100% - 40px);
+}

@@ -1,0 +1,9 @@
+.container {
+  display: block;
+  height: 100%;
+}
+
+.content .ql-editor {
+  height: calc(65vh - 98px);
+  overflow-y: scroll;
+}

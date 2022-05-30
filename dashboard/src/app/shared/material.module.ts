@@ -8,6 +8,8 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   exports: [
@@ -20,6 +22,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatTooltipModule,
     MatSidenavModule,
     MatDividerModule,
+    MatMenuModule,
+    MatDialogModule,
   ],
 })
 export class MaterialModule {}

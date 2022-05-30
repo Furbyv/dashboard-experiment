@@ -1,0 +1,9 @@
+<div mat-dialog-content class="content">
+  <quill-editor [(ngModel)]="content" [sanitize]="true"></quill-editor>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button (click)="onSave()" color="primary" cdkFocusInitial>
+    Save
+  </button>
+</div>

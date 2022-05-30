@@ -1,5 +1,5 @@
 <ng-container *ngIf="template.type === cardType.Narrative">
-  <div class="item-n">{{ template.type }}</div>
+  <app-text-view class="editor"></app-text-view>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.AreaChart">
   <app-area-chart></app-area-chart>

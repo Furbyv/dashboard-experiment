@@ -3,13 +3,7 @@
   height: 100%;
 }
 
-div {
-  display: flex;
-  flex-direction: column;
+.editor {
+  display: block;
   max-height: 100%;
-}
-
-.item-n {
-  background-color: aqua;
-  flex: 1;
 }

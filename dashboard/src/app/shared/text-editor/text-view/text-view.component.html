@@ -1,0 +1,12 @@
+<div class="edit-menu">
+  <span></span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <ng-container *ngIf="content$ | async as content">
+      <button mat-menu-item (click)="openEditDialog(content)">Edit text</button>
+    </ng-container>
+  </mat-menu>
+</div>
+<quill-view [content]="content$ | async" class="view"></quill-view>
