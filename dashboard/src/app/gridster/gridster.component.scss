@@ -1,10 +1,13 @@
+gridster {
+  background-color: lightgray;
+}
+
 gridster-item {
   background: none;
 }
 
 .grid-container {
   display: flex;
-  flex-direction: column;
   height: 100%;
   width: 100%;
 }
@@ -41,9 +44,4 @@ gridster-item {
 
 .grid {
   flex: 1;
-}
-
-.action-bar {
-  padding-top: 8px;
-  padding-bottom: 8px;
 }

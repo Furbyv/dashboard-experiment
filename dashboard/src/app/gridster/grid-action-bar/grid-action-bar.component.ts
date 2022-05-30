@@ -6,13 +6,14 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { appear } from 'src/app/shared/animations/appear.animation';
 
 @Component({
   selector: 'app-grid-action-bar',
   templateUrl: './grid-action-bar.component.html',
   styleUrls: ['./grid-action-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: appear,
 })
 export class GridActionBarComponent implements OnInit {
   @Input() isModified: boolean | null = false;
@@ -34,9 +35,9 @@ export class GridActionBarComponent implements OnInit {
     }
   }
 
-  onChangeEditMode(event: MatSlideToggleChange) {
-    this.editable = event.checked;
-    this.isEditable.emit(event.checked);
+  onChangeEditMode() {
+    this.editable = !this.editable;
+    this.isEditable.emit(this.editable);
   }
 
   onAddItem() {

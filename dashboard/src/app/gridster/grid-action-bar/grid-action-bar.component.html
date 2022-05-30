@@ -1,31 +1,40 @@
-<button
-  mat-raised-button
-  [disabled]="!editable"
-  class="add-button"
-  color="primary"
-  (click)="onAddItem()"
->
-  Add card
-</button>
-<span></span>
-<button
-  mat-raised-button
-  [disabled]="isDisabled()"
-  class="state-button"
-  color="accent"
-  (click)="onSave()"
->
-  Save changes
-</button>
-<button
-  mat-raised-button
-  [disabled]="isDisabled()"
-  class="state-button"
-  color="warn"
-  (click)="onDiscard()"
->
-  Discard changes
-</button>
-<mat-slide-toggle class="slide-toggle" (change)="onChangeEditMode($event)"
-  >Edit dashboard</mat-slide-toggle
->
+<div class="action-bar">
+  <button
+    mat-icon-button
+    [matTooltip]="editable ? 'Stop editing' : 'Edit dashboard'"
+    (click)="onChangeEditMode()"
+  >
+    <mat-icon>{{ editable ? "close" : "edit" }}</mat-icon>
+  </button>
+  <br />
+  <div class="actions" *ngIf="editable" [@inOutAnimation]>
+    <button
+      mat-icon-button
+      [disabled]="!editable"
+      matTooltip="Add card"
+      class="add-button"
+      (click)="onAddItem()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
+    <mat-divider></mat-divider>
+    <button
+      mat-icon-button
+      [disabled]="isDisabled()"
+      matTooltip="Save changes"
+      class="save-button"
+      (click)="onSave()"
+    >
+      <mat-icon>save</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      [disabled]="isDisabled()"
+      matTooltip="Discard changes"
+      class="state-button"
+      (click)="onDiscard()"
+    >
+      <mat-icon>undo</mat-icon>
+    </button>
+  </div>
+</div>

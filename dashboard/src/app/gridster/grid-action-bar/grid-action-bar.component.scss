@@ -1,19 +1,20 @@
-:host {
+.action-bar {
   display: flex;
+  flex-direction: column;
+  padding-right: 8px;
+  padding-top: 16px;
 }
 
-span {
-  flex: 1;
+div.actions {
+  display: flex;
+  flex-direction: column;
 }
 
 .add-button {
-  margin: auto 0 auto 16px;
+  margin-bottom: 16px;
 }
 
-.state-button {
-  margin: auto 16px auto 0;
-}
-
-.slide-toggle {
-  margin: auto 16px auto 0;
+.save-button {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
