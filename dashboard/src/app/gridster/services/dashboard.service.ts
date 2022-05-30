@@ -14,14 +14,8 @@ import {
   tap,
   withLatestFrom,
 } from 'rxjs';
-
-export enum CardType {
-  Narrative = 'Narrative',
-  PieChart = 'PieChart',
-  LineChart = 'LineChart',
-  BarChart = 'BarChart',
-  AreaChart = 'AreaChart',
-}
+import { CardType } from './card-types';
+import { foo } from './default-dashboard';
 
 export interface CardTemplate {
   id: number;
@@ -86,9 +80,10 @@ export class DashboardService {
   private getDashboardFromLocalStorage(): Observable<CardTemplate[]> {
     const storedDb = localStorage.getItem(Key);
     if (storedDb) {
+      console.log(JSON.parse(storedDb));
       return of(JSON.parse(storedDb));
     } else {
-      return of([]);
+      return of(foo);
     }
   }
 

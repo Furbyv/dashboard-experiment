@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CardTemplate, CardType } from '../../services/dashboard.service';
+import { CardType } from '../../services/card-types';
+import { CardTemplate } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-card-template',

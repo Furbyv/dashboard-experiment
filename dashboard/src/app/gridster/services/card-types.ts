@@ -1,9 +1,9 @@
 export enum CardType {
-  Narrative = 1,
-  PieChart = 2,
-  LineChart = 3,
-  BarChart = 4,
-  AreaChart = 5,
+  Narrative,
+  PieChart,
+  LineChart,
+  BarChart,
+  AreaChart,
 }
 
 export let cardTypeDescriptions: Record<keyof typeof CardType, string> = {

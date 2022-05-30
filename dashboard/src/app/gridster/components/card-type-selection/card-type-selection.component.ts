@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MatSelectionListChange } from '@angular/material/list';
 import { enumToSelectItemArray } from 'src/app/shared/utils/enum.util';
-import { cardTypeDescriptions } from '../../services/card-types';
-import { CardType } from '../../services/dashboard.service';
+import { CardType, cardTypeDescriptions } from '../../services/card-types';
 
 @Component({
   selector: 'app-card-type-selection',

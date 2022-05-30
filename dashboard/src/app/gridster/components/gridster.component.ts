@@ -56,7 +56,7 @@ export class GridsterGridComponent implements AfterViewInit {
 
   onTemplateChange(template: CardTemplate, dashboard: CardTemplate[]) {
     const cardIndex = dashboard.findIndex((c) => c.id === template.id);
-    if (cardIndex) {
+    if (cardIndex !== null) {
       dashboard[cardIndex] = template;
       this.dashboardService.setDashboard(dashboard);
       this.dashboardService.saveDashboard();
@@ -88,7 +88,6 @@ export class GridsterGridComponent implements AfterViewInit {
 
   addItem(dashboard: CardTemplate[]): void {
     let maxId = dashboard.length ? Math.max(...dashboard.map((d) => d.id)) : 0;
-    console.log(maxId);
     this._bottomSheet
       .open(CardTypeSelectionComponent)
       .afterDismissed()
