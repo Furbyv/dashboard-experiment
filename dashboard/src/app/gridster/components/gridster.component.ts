@@ -9,9 +9,9 @@ import {
   GridsterItemComponentInterface,
 } from 'angular-gridster2';
 import { take } from 'rxjs';
-import { appear } from '../shared/animations/appear.animation';
+import { appear } from 'src/app/shared/animations/appear.animation';
+import { DashboardService, CardTemplate } from '../services/dashboard.service';
 import { CardTypeSelectionComponent } from './card-type-selection/card-type-selection.component';
-import { CardTemplate, DashboardService } from './services/dashboard.service';
 
 @Component({
   selector: 'app-gridster',
