@@ -87,7 +87,8 @@ export class GridsterGridComponent implements AfterViewInit {
   }
 
   addItem(dashboard: CardTemplate[]): void {
-    const maxId = Math.max(...dashboard.map((d) => d.id)) ?? 1;
+    let maxId = dashboard.length ? Math.max(...dashboard.map((d) => d.id)) : 0;
+    console.log(maxId);
     this._bottomSheet
       .open(CardTypeSelectionComponent)
       .afterDismissed()
