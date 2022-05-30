@@ -73,7 +73,6 @@ export class DashboardService {
 
   public setDashboard(dashboard: CardTemplate[]): void {
     this.editedDashboard$$.next(dashboard);
-    console.log('set');
   }
 
   public saveDashboard() {
