@@ -1,4 +1,4 @@
-<div class="action-bar">
+<div class="action-bar" [ngClass]="editable ? 'white' : ''">
   <button
     mat-icon-button
     [matTooltip]="editable ? 'Stop editing' : 'Edit dashboard'"

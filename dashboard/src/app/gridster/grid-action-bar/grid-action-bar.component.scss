@@ -1,8 +1,11 @@
 .action-bar {
   display: flex;
   flex-direction: column;
+  padding: 16px 8px 16px 8px;
   padding-right: 8px;
   padding-top: 16px;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 div.actions {
@@ -12,6 +15,10 @@ div.actions {
 
 .add-button {
   margin-bottom: 16px;
+}
+
+.white {
+  background-color: #fff;
 }
 
 .save-button {
