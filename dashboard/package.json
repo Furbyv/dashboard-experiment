@@ -20,7 +20,6 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
-    "@katoid/angular-grid-layout": "^1.2.0",
     "angular-gridster2": "^13.2.1",
     "angular-highcharts": "^13.0.1",
     "highcharts": "^10.1.0",
