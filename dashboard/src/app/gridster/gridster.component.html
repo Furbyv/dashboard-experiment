@@ -18,7 +18,11 @@
           (delete)="removeItem(item, dashboard)"
         ></app-edit-cell-overlay>
         <mat-card class="item-content">
-          <app-card-template class="item" [template]="item"></app-card-template>
+          <app-card-template
+            class="item"
+            [template]="item"
+            (templateChange)="onTemplateChange($event, dashboard)"
+          ></app-card-template>
         </mat-card>
       </div>
     </gridster-item>

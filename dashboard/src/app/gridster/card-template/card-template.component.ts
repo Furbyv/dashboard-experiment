@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CardTemplate, CardType } from '../services/dashboard.service';
 
 @Component({
@@ -9,7 +9,13 @@ import { CardTemplate, CardType } from '../services/dashboard.service';
 export class CardTemplateComponent implements OnInit {
   cardType = CardType;
   @Input() template: CardTemplate;
+  @Output() templateChange: EventEmitter<CardTemplate> = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
+
+  onContentChange(value: string) {
+    this.template.content = value;
+    this.templateChange.emit(this.template);
+  }
 }

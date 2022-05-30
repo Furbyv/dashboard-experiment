@@ -26,6 +26,7 @@ export enum CardType {
 export interface CardTemplate {
   id: number;
   type: CardType;
+  content?: string;
   position: GridsterItem;
 }
 
@@ -72,6 +73,7 @@ export class DashboardService {
 
   public setDashboard(dashboard: CardTemplate[]): void {
     this.editedDashboard$$.next(dashboard);
+    console.log('set');
   }
 
   public saveDashboard() {

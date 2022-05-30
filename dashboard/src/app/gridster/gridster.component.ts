@@ -54,6 +54,15 @@ export class GridsterGridComponent implements AfterViewInit {
     this.resizeEvent();
   }
 
+  onTemplateChange(template: CardTemplate, dashboard: CardTemplate[]) {
+    const cardIndex = dashboard.findIndex((c) => c.id === template.id);
+    if (cardIndex) {
+      dashboard[cardIndex] = template;
+      this.dashboardService.setDashboard(dashboard);
+      this.dashboardService.saveDashboard();
+    }
+  }
+
   itemInit() {
     this.resizeEvent();
   }

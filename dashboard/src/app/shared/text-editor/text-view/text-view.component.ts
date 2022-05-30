@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  EventEmitter,
   Input,
+  Output,
   ViewEncapsulation,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,9 +19,12 @@ import { TextEditorDialogComponent } from '../text-editor-dialog/text-editor-dia
 })
 export class TextViewComponent {
   private content$$: Subject<string> = new ReplaySubject(1);
-  @Input() set content(value: string) {
-    this.content$$.next(value);
+  @Input() set content(value: string | null | undefined) {
+    if (value) {
+      this.content$$.next(value);
+    }
   }
+  @Output() contentChange: EventEmitter<string> = new EventEmitter();
   content$ = this.content$$.asObservable();
   constructor(private dialog: MatDialog) {
     this.content$$.next(
@@ -35,9 +40,9 @@ export class TextViewComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
       if (result) {
         this.content$$.next(result);
+        this.contentChange.emit(result);
       }
     });
   }

@@ -1,5 +1,9 @@
 <ng-container *ngIf="template.type === cardType.Narrative">
-  <app-text-view class="editor"></app-text-view>
+  <app-text-view
+    class="editor"
+    [content]="template.content"
+    (contentChange)="onContentChange($event)"
+  ></app-text-view>
 </ng-container>
 <ng-container *ngIf="template.type === cardType.AreaChart">
   <app-area-chart></app-area-chart>
