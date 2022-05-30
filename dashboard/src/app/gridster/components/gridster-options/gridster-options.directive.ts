@@ -22,6 +22,8 @@ export class GridsterOptionsDirective {
       gridType: GridType.Fit,
       displayGrid: DisplayGrid.OnDragAndResize,
       margin: 12,
+      minCols: 3,
+      minRows: 4,
       pushItems: true,
       swap: false,
       draggable: {
