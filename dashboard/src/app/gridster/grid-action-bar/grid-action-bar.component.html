@@ -7,7 +7,7 @@
     <mat-icon>{{ editable ? "close" : "edit" }}</mat-icon>
   </button>
   <br />
-  <div class="actions" *ngIf="editable" [@inOutAnimation]>
+  <div class="actions" *ngIf="editable" [@appearAnimation]>
     <button
       mat-icon-button
       [disabled]="!editable"

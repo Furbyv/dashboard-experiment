@@ -1,7 +1,7 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 
 export const appear = [
-  trigger('inOutAnimation', [
+  trigger('appearAnimation', [
     transition(':enter', [
       style({ opacity: 0 }),
       animate('0.2s ease-out', style({ opacity: 1 })),
